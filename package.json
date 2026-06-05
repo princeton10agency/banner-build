@@ -1,0 +1,28 @@
+{
+  "name": "banner-build",
+  "version": "1.0.0",
+  "description": "CLI for building Paratek-style banner ad projects.",
+  "bin": {
+    "banner-build": "./bin/banner-build.cjs"
+  },
+  "files": [
+    "bin"
+  ],
+  "keywords": [
+    "banner",
+    "cli",
+    "build",
+    "ads"
+  ],
+  "author": "jamestomasino",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestomasino/banner-build.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamestomasino/banner-build/issues"
+  },
+  "homepage": "https://github.com/jamestomasino/banner-build#readme",
+  "type": "commonjs"
+}
