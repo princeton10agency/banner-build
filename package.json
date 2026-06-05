@@ -1,9 +1,12 @@
 {
-  "name": "banner-build",
+  "name": "@p10agency/banner-build",
   "version": "1.0.0",
-  "description": "CLI for building Paratek-style banner ad projects.",
+  "description": "CLI for building multi-variant HTML banner projects.",
+  "publishConfig": {
+    "access": "public"
+  },
   "bin": {
-    "banner-build": "./bin/banner-build.cjs"
+    "banner-build": "bin/banner-build.cjs"
   },
   "scripts": {
     "test": "node ./test/smoke.cjs"
