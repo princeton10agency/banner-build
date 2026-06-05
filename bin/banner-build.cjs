@@ -4,7 +4,7 @@ const path = require('path')
 const { execFileSync } = require('child_process')
 
 const BIN_DIR = __dirname
-const PROJECT_BUILD = path.join(BIN_DIR, 'project-build.cjs')
+const PROJECT_BUILD = path.join(BIN_DIR, '..', 'lib', 'project-build.cjs')
 
 function parseArgs(argv) {
   const flags = {

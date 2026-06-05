@@ -5,8 +5,12 @@
   "bin": {
     "banner-build": "./bin/banner-build.cjs"
   },
+  "scripts": {
+    "test": "node ./test/smoke.cjs"
+  },
   "files": [
-    "bin"
+    "bin",
+    "lib"
   ],
   "keywords": [
     "banner",
@@ -18,11 +22,14 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jamestomasino/banner-build.git"
+    "url": "git+https://github.com/princeton10agency/banner-build.git"
   },
   "bugs": {
-    "url": "https://github.com/jamestomasino/banner-build/issues"
+    "url": "https://github.com/princeton10agency/banner-build/issues"
   },
-  "homepage": "https://github.com/jamestomasino/banner-build#readme",
-  "type": "commonjs"
+  "homepage": "https://github.com/princeton10agency/banner-build#readme",
+  "type": "commonjs",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
 }
