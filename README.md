@@ -107,6 +107,7 @@ Example:
   "globals": {
     "static_name": "static.jpg",
     "vars": {
+      "static_job_code": "JOB-12345",
       "click_tag": "https://example.com"
     }
   },
@@ -153,6 +154,7 @@ Supported fields:
 - `stylesheet`
 - `javascript`
 - `static`
+- `static_job_code`
 - `image`
 
 ### Dynamic sizes
@@ -167,6 +169,7 @@ Typical fields:
 - `stylesheet`: output CSS filename, usually mapped to an SCSS entry
 - `javascript`: output JS filename, usually mapped to a JS entry
 - `static`: static image source for that size
+- `static_job_code`: optional override for the statics-zip filename prefix for this size
 
 If `stylesheet` is omitted, the build assumes `styles-${id}.css`.
 
@@ -342,6 +345,32 @@ You can override it with:
     "static_name": "my-static.jpg"
   }
 }
+```
+
+For the optional project statics zip, filename collisions are normally resolved by prefixing each static with the variant output folder name such as:
+
+```text
+my-banner-300x250-static.jpg
+```
+
+You can override the project-name portion of that prefix with `static_job_code`. When present, the statics zip always uses the prefixed name even if the original static filenames are already unique. The value can be defined on `size`, `alt`, `globals.vars`, or `globals`, in that priority order.
+
+Example:
+
+```json
+{
+  "globals": {
+    "vars": {
+      "static_job_code": "TYM-US-05348"
+    }
+  }
+}
+```
+
+For a project named `TYM-US-07037`, that produces statics-zip names like:
+
+```text
+TYM-US-05348-160x600-static.jpg
 ```
 
 ### Static resizing
