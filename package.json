@@ -1,6 +1,6 @@
 {
   "name": "@p10agency/banner-build",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI for building multi-variant HTML banner projects.",
   "publishConfig": {
     "access": "public"
