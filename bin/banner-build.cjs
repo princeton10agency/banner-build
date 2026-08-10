@@ -9,7 +9,8 @@ const PROJECT_BUILD = path.join(BIN_DIR, '..', 'lib', 'project-build.cjs')
 function parseArgs(argv) {
   const flags = {
     lintAssets: false,
-    watch: false
+    watch: false,
+    isiScreenshots: false
   }
   const positional = []
 
@@ -20,6 +21,10 @@ function parseArgs(argv) {
     }
     if (arg === '--watch') {
       flags.watch = true
+      continue
+    }
+    if (arg === '--isi-screenshots') {
+      flags.isiScreenshots = true
       continue
     }
     if (arg === '--help' || arg === '-h') {
@@ -56,7 +61,7 @@ function runProject(dirPath, extraArgs) {
 
 function printHelp() {
   console.log([
-    'usage: banner-build [path] [--lint-assets] [--watch]',
+    'usage: banner-build [path] [--lint-assets] [--watch] [--isi-screenshots]',
     '',
     'If path contains creative.config.json, the command builds that banner project.',
     'Otherwise it builds each immediate subdirectory that contains creative.config.json.'
@@ -97,6 +102,9 @@ function main() {
   }
   if (flags.watch) {
     extraArgs.push('--watch')
+  }
+  if (flags.isiScreenshots) {
+    extraArgs.push('--isi-screenshots')
   }
 
   for (const projectPath of projects) {

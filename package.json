@@ -33,6 +33,7 @@
   "homepage": "https://github.com/princeton10agency/banner-build#readme",
   "type": "commonjs",
   "dependencies": {
+    "playwright-core": "^1.62.1",
     "sharp": "^0.34.5"
   }
 }
