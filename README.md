@@ -149,6 +149,7 @@ Each object in `sizes` describes one output variant.
 Supported fields:
 
 - `id`
+- `output_name`
 - `width`
 - `height`
 - `stylesheet`
@@ -164,6 +165,7 @@ A normal size generates a full banner output in `dist/`.
 Typical fields:
 
 - `id`: a label like `300x250`
+- `output_name`: optional exact output folder and zip basename for this size
 - `width`
 - `height`
 - `stylesheet`: output CSS filename, usually mapped to an SCSS entry
@@ -206,6 +208,24 @@ Without alts, the output directory name is:
 ```text
 <project>-<size-id>
 ```
+
+A dynamic size may override that generated name with `output_name`:
+
+```json
+{
+  "id": "300x250",
+  "output_name": "JOB-ALPHA-300x250",
+  "width": 300,
+  "height": 250
+}
+```
+
+This produces `dist/JOB-ALPHA-300x250/` and
+`dist/JOB-ALPHA-300x250.zip`. Do not
+include the `.zip` extension. Output names may contain letters, numbers, dots,
+underscores, and hyphens. If the project defines alts, the alt id is appended
+to the override (for example, `JOB-ALPHA-300x250-A`) so each variant remains unique.
+Duplicate output names are rejected before the build writes `dist/`.
 
 ### Alt-specific CSS
 
@@ -361,16 +381,16 @@ Example:
 {
   "globals": {
     "vars": {
-      "static_job_code": "TYM-US-05348"
+      "static_job_code": "STATIC-JOB-12345"
     }
   }
 }
 ```
 
-For a project named `TYM-US-07037`, that produces statics-zip names like:
+For a project named `EXAMPLE-CAMPAIGN`, that produces statics-zip names like:
 
 ```text
-TYM-US-05348-160x600-static.jpg
+STATIC-JOB-12345-160x600-static.jpg
 ```
 
 ### Static resizing
