@@ -1,0 +1,30 @@
+{
+  "campaign_title": "ISI Screenshot Fixture",
+  "globals": {
+    "static_name": "static.jpg",
+    "static": "images/static.jpg",
+    "vars": {
+      "click_tag": "https://example.com",
+      "job": "Fixture job"
+    }
+  },
+  "isi_screenshots": {
+    "enabled": true,
+    "hide_selectors": [
+      ".isi-sticky-header",
+      ".isi-close-button",
+      ".isi-footer",
+      ".iScrollVerticalScrollbar"
+    ]
+  },
+  "sizes": [
+    {
+      "id": "300x250",
+      "width": 300,
+      "height": 250,
+      "stylesheet": "styles-300x250.css",
+      "javascript": "main.js",
+      "static": "images/static.jpg"
+    }
+  ]
+}

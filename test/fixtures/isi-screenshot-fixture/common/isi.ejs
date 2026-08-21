@@ -1,0 +1,35 @@
+<%
+  const paragraphs = Array.from({ length: 18 }, (_, index) => index + 1)
+%>
+<div class="isi-holder" id="isi-holder">
+  <div class="isi-sticky-header">
+    <span class="isi-close-button" role="button" aria-label="Close">Close</span>
+    <span class="sticky-title">Expanded ISI</span>
+  </div>
+  <div class="isi" id="isi">
+    <div id="wrapper" class="wrapper">
+      <div id="scroller" class="scroller">
+        <div class="isi-content">
+          <p class="title">
+            INDICATION &amp; SAFETY INFO
+          </p>
+          <% paragraphs.forEach((paragraph) => { %>
+            <p>
+              Paragraph <%= paragraph %>: The fixture content is intentionally long so the ISI must scroll before capture. This text is repeated to force a full-height screenshot.
+            </p>
+          <% }) %>
+          <p>
+            <strong>Please see full Prescribing Information and Medication Guide.</strong>
+          </p>
+          <p class="copyright">
+            <%- job || '' %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="isi-footer">
+    <button class="isi-close-button" type="button">Close</button>
+    <span>Footer control that should not appear in screenshots.</span>
+  </div>
+</div>

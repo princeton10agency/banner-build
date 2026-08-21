@@ -4,4 +4,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 .DS_Store
-test/fixtures/
+test/fixtures/*
+!test/fixtures/isi-screenshot-fixture/
+!test/fixtures/isi-screenshot-fixture/**
+test/fixtures/isi-screenshot-fixture/dist/
+test/fixtures/isi-screenshot-fixture/dist/**

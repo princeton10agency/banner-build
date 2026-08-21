@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="<%= size.stylesheet %>">
+    <script>
+      var clickTag = "<%= vars.click_tag %>";
+    </script>
+    <script src="<%= size.javascript %>" defer></script>
+  </head>
+  <body>
+    <div class="banner">
+      <h1 class="banner-title">ISI screenshot fixture</h1>
+      <p class="banner-copy">This fixture exercises the scrolling ISI capture path.</p>
+      <%- include('common/isi', { job: vars.job }) %>
+    </div>
+  </body>
+</html>

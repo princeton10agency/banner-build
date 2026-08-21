@@ -54,6 +54,12 @@ Watch a single project and rebuild on change:
 banner-build . --watch
 ```
 
+Generate full-height ISI screenshots for enabled projects:
+
+```bash
+banner-build . --isi-screenshots
+```
+
 Show help:
 
 ```bash
@@ -404,6 +410,33 @@ Examples:
 - `450x375` source for `300x250` target: rejected
 - `600x250` source for `300x250` target: rejected
 
+### ISI screenshots
+
+If a project has a scrolling ISI and you want full-height captures, enable the screenshot pipeline in `creative.config.json`:
+
+```json
+{
+  "isi_screenshots": {
+    "enabled": true,
+    "hide_selectors": [
+      ".isi-sticky-header",
+      ".isi-close-button",
+      ".isi-footer",
+      ".iScrollVerticalScrollbar"
+    ]
+  }
+}
+```
+
+When enabled, `banner-build . --isi-screenshots` writes a separate `dist/<project>-isi-screenshots.zip`.
+
+Notes:
+
+- the screenshot PNGs stay out of the variant zips
+- the screenshot PNGs stay out of the statics zip
+- the build requires a Chromium executable available to Playwright
+- you can point at a browser with `PLAYWRIGHT_CHROMIUM_PATH`, `CHROME_PATH`, `GOOGLE_CHROME_PATH`, `CHROMIUM_PATH`, or `CHROMIUM_BROWSER_PATH`
+
 ## Output
 
 Each build creates a `dist/` directory containing:
@@ -412,6 +445,7 @@ Each build creates a `dist/` directory containing:
 - one zip per generated variant
 - `index.html` preview page
 - optional `<project>-statics.zip`
+- optional `<project>-isi-screenshots.zip`
 
 Each output folder contains flattened runtime assets, including:
 
@@ -428,6 +462,7 @@ The generated `dist/index.html` contains:
 - a preview grid grouped by alt
 - links to each banner variant
 - download links for variant zips
+- a download link for the ISI screenshot zip when enabled
 - frame links when the JavaScript contains GSAP-style labels like `frame1`, `frame2`, and so on
 
 ## Linting
